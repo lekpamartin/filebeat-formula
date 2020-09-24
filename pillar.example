@@ -3,6 +3,8 @@ filebeat:
     config_path: /etc/mycustom/filebeat/filebeat.yml
     config_source: salt://mycustom/filebeat/filebeat.jinja
     runlevels_install: True
+    # Deploy public elastic repo 
+    use_repo: False
 
   # if no log_paths specified, generic syslogs are default
   log_paths:
