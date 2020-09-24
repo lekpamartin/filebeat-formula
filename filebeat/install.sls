@@ -1,3 +1,7 @@
+{% from "filebeat/map.jinja" import conf with context %}
+
+{% if conf.use_repo %}
+
 {% if salt['grains.get']('os_family') == 'Debian' %}
 filebeat_repo:
   pkgrepo.managed:
@@ -22,6 +26,8 @@ filebeat_repo:
       - pkg: filebeat.install
     - watch_in:
       - pkg: filebeat.install
+{% endif %}
+
 {% endif %}
 
 filebeat.install:
